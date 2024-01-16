@@ -1,7 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore/lite';
+import { db } from './firebaseconfig/firebase';
 
 function App() {
+  useEffect(()=>{
+    const fetch=async()=>{
+      const citiesCol = collection(db, 'cities');
+      const citySnapshot = await getDocs(citiesCol);
+      const cityList = citySnapshot.docs.map(doc => doc.data());
+      console.log(cityList,'AAAAAAAAAAAAAAAAAAAAAA')
+    }
+    fetch()
+  },[])
   return (
     <div className="App">
       <header className="App-header">
