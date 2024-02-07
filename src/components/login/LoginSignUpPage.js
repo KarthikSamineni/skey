@@ -77,12 +77,12 @@ function LoginSignUpPage() {
         last_name: lastName,
         email: email,
       });
-      console.log(docRef, "contact created");
+      // console.log(docRef, "contact created");
     } else {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user, "User is ..");
+          // console.log(user, "User is ..");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -99,7 +99,7 @@ function LoginSignUpPage() {
         id: doc.id,
         ...doc.data(),
       }));
-      console.log(documents, "documents documents");
+      // console.log(documents, "documents documents");
     };
     fetchData();
   }, []);
